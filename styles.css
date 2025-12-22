@@ -52,6 +52,14 @@ section{padding:3rem 0}
 .intro h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:0.5rem}
 .lead{color:var(--text);opacity:0.92}
 
+/* Intro image */
+.intro-grid{display:flex;gap:1rem;align-items:center}
+.welcome-img{width:96px;height:96px;object-fit:cover;border-radius:14px;border:2px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(0,0,0,0.45)}
+@media(max-width:699px){
+  .intro-grid{flex-direction:column;align-items:flex-start}
+  .welcome-img{width:88px;height:88px}
+}
+
 /* Cards */
 .cards{display:grid;grid-template-columns:1fr;gap:1rem}
 .card{background:var(--surface);border-radius:12px;overflow:hidden;padding:0;border:1px solid rgba(255,255,255,0.03)}
