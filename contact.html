@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact & Booking — 10:11 Events</title>
+    <meta
+      name="description"
+      content="Contact 10:11 events for bookings and quotes. Chat with our CEO or send a booking request form."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header small">
+      <div class="container nav-wrap">
+        <a href="index.html" class="logo">
+          <img src="assets/logo.png" alt="10:11 events logo" class="logo-img" />
+          <span class="sub">events</span>
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Portfolio</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger">☰</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section
+        class="page-hero small"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200');
+        "
+      >
+        <div class="hero-overlay small">
+          <h1>Contact & Booking</h1>
+          <p class="lead">Ready to plan your next event? Reach out now.</p>
+        </div>
+      </section>
+
+      <section class="contact-grid fade-up">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p><strong>Address:</strong> Umuahia, Abia State, Nigeria</p>
+          <p><strong>Phone:</strong> +234 802 582 2375</p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:tenelevenevents@gmail.com"
+              >tenelevenevents@gmail.com</a
+            >
+          </p>
+          <p>
+            <a
+              class="btn btn-gold"
+              href="https://wa.me/2348025822375?text=Hi,%20I%27d%20like%20to%20chat%20with%20the%20CEO%20about%20an%20event"
+              >Chat with CEO on WhatsApp</a
+            >
+          </p>
+          <h4>Request a Quote</h4>
+          <p>Fill the form and we will respond within 24-48 hours.</p>
+        </div>
+
+        <div class="contact-form">
+          <!-- Replace action with your Formspree endpoint or server handler -->
+          <form action="https://formspree.io/f/your-form-id" method="POST">
+            <label>Name<input type="text" name="name" required /></label>
+            <label>Phone<input type="tel" name="phone" required /></label>
+            <label>Email<input type="email" name="email" /></label>
+            <label
+              >Event Type<select name="event_type">
+                <option>Wedding</option>
+                <option>Birthday</option>
+                <option>Corporate</option>
+                <option>Other</option>
+              </select></label
+            >
+            <label>Event Date<input type="date" name="date" /></label>
+            <label>Message<textarea name="message" rows="5"></textarea></label>
+            <button type="submit" class="btn btn-gold">Send Request</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="map fade-up">
+        <h3>Our Location</h3>
+        <div class="map-wrap">
+          <!-- Google Maps embed for Umuahia; replace with your location marker if needed -->
+          <iframe
+            src="https://www.google.com/maps?q=Umuahia,+Abia+State,+Nigeria&output=embed"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer small">
+      <div class="container footer-grid">
+        <div>
+          <h4>10:11 events</h4>
+          <p>Umuahia, Abia State</p>
+          <p>Phone: +234 802 582 2375</p>
+          <p>
+            Email:
+            <a href="mailto:tenelevenevents@gmail.com"
+              >tenelevenevents@gmail.com</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="copyright">
+        © <span id="year-contact"></span> 10:11 events.
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
