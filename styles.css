@@ -67,7 +67,10 @@ section{padding:3rem 0}
 
 /* Testimonials */
 .testimonials-slider{display:flex;overflow:hidden}
-.testi{min-width:100%;padding:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+.testi{min-width:100%;padding:0.4rem;border-radius:8px}
+.testi-card{display:flex;gap:0.8rem;align-items:flex-start;padding:1rem;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+.testi-avatar{width:64px;height:64px;object-fit:cover;border-radius:50%;border:2px solid rgba(255,255,255,0.06)}
+.testi-text{font-size:0.98rem;color:var(--text);opacity:0.95}
 
 /* Blog grid */
 .blog-grid{display:grid;grid-template-columns:1fr;gap:1rem}
