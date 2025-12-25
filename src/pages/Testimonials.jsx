@@ -7,7 +7,7 @@ export default function Testimonials(){
     {name:'Emeka',text:'Great catering and beautiful table styling.'}
   ]
   return (
-    <main className="container">
+    <main id="main" className="container">
       <section className="page-hero" style={{backgroundImage:"url('https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1272611814869063')"}}>
         <div className="hero-overlay small">
           <h1>Testimonials</h1>

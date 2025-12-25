@@ -6,7 +6,7 @@ export default function Contact(){
     setForm(prev=> ({...prev,[name]:value}))
   }
   return (
-    <main className="container">
+    <main id="main" className="container">
       <section className="page-hero" style={{backgroundImage:"url('/chief.jpg')"}}>
         <div className="hero-overlay small">
           <h1>Contact & Booking</h1>

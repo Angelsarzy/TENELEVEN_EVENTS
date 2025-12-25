@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 export default function Footer(){
   const year = new Date().getFullYear()
   return (
@@ -12,13 +13,13 @@ export default function Footer(){
         <div>
           <h5>Quick Links</h5>
           <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
       </div>
       <div className="copyright">© {year} 10:11 events. All rights reserved.</div>
     </footer>
   )
-}
+} 

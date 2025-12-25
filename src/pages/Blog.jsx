@@ -6,7 +6,7 @@ export default function Blog(){
     {title:'Full Catering vs. Cake & Chops: What You Need',excerpt:'Choosing the right food service for your event size and budget.'}
   ]
   return (
-    <main className="container">
+    <main id="main" className="container">
       <section className="page-hero" style={{backgroundImage:"url('https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1276969444433300')"}}>
         <div className="hero-overlay small">
           <h1>Blog</h1>

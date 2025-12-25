@@ -9,7 +9,7 @@ export default function Gallery(){
     'https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3740365462929652254'
   ]
   return (
-    <main className="container">
+    <main id="main" className="container">
       <section className="page-hero" style={{backgroundImage:"url('https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1272611814869063')"}}>
         <div className="hero-overlay small">
           <h1>Portfolio</h1>

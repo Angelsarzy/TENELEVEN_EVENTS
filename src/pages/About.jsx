@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 export default function About(){
   const [show,setShow] = React.useState(true)
   return (
-    <main className="container">
+    <main id="main" className="container">
       <section className="page-hero" style={{backgroundImage:"url('https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1276969444433300')"}}>
         <div className="hero-overlay small">
           <motion.h1 initial={{y:6,opacity:0}} animate={{y:0,opacity:1}}>About 10:11 events</motion.h1>

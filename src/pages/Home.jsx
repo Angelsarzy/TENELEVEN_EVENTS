@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 export default function Home(){
   const slides = [
@@ -7,14 +8,16 @@ export default function Home(){
     {title:'Memorable Birthdays & Corporate Events',text:'Full catering and venue setup packages available.',btn:'Get a Quote',img:'https://cdn0.weddingwire.com/vendor/677289/3_2/960/jpg/1505218733646-om-event-decorations-mandap-wedding-indian-sweet-s.jpeg'}
   ]
   const [idx,setIdx] = React.useState(0)
+  const [paused,setPaused] = React.useState(false)
   React.useEffect(()=>{
+    if(paused) return
     const t = setInterval(()=>{setIdx((s)=> (s+1)%slides.length)},4000)
     return ()=>clearInterval(t)
-  },[])
+  },[paused, slides.length])
   return (
-    <main>
+    <main id="main">
       <section className="hero-slider">
-        <div className="slides" style={{transform:`translateX(-${idx*100}%)`,transition:'transform .8s ease'}}>
+        <div className="slides" tabIndex="0" onMouseEnter={()=>setPaused(true)} onMouseLeave={()=>setPaused(false)} onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)} style={{transform:`translateX(-${idx*100}%)`,transition:'transform .8s ease'}}>
           {slides.map((s,i)=>(
             <div key={i} className="slide" style={{backgroundImage:`url('${s.img}')`}}>
               <div className="hero-overlay">
@@ -43,11 +46,11 @@ export default function Home(){
               <img src={c.img} alt={c.t} />
               <h4>{c.t}</h4>
               <p>{c.p}</p>
-              <a className="btn btn-small" href="/services">Book This Service</a>
+              <Link className="btn btn-small" to="/services">Book This Service</Link>
             </article>
           ))}
         </div>
-      </section>
+      </section> 
       <section className="testimonials container fade-in">
         <h3>What Clients Say</h3>
         <div className="testimonials-slider">
