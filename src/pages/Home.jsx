@@ -31,7 +31,7 @@ export default function Home(){
       </section>
       <section className="intro container fade-in">
         <div className="intro-grid">
-          <img className="welcome-img" src="/10 11 logo.png" alt="emblem" />
+          <img className="welcome-img" src="/assets/10-11-logo.png" alt="emblem" />
           <div>
             <h2>Welcome to 10:11 events</h2>
             <p className="lead">We are a premier event decoration, planning and catering company based in Umuahia, Abia State, Nigeria. Owned by CEO Ibezim Bruno Chidozie, our team creates elegant, inspiring celebrations — from intimate gatherings to large-scale weddings and corporate galas.</p>

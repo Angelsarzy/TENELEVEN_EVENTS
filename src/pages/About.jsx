@@ -14,7 +14,7 @@ export default function About(){
         <h2>Our Story</h2>
         <p>Founded with a passion for unforgettable celebrations, 10:11 events specializes in crafting elegant, luxurious experiences for weddings, birthdays, and corporate events. Our approach combines creative design, meticulous planning, and top-tier catering to bring your vision to life.</p>
         <div className="ceo-profile fade-in">
-          <img className="ceo-photo" src="/chief.jpg" alt="CEO" />
+          <img className="ceo-photo" src="/assets/chief.jpg" alt="CEO" />
           <div className="ceo-bio">
             <h3>Meet the CEO</h3>
             <p><strong>Ibezim Bruno Chidozie</strong> — Founder & CEO. With years of experience in event design and hospitality, Bruno leads a talented team dedicated to exceptional service and attention to detail.</p>

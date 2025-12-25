@@ -10,7 +10,7 @@ export default function Navbar(){
       <header className="site-header">
         <div className="container nav-wrap">
           <Link className="logo" to="/">
-            <img className="logo-img" src="/10 11 logo.png" alt="10:11 events logo" />
+            <img className="logo-img" src="/assets/10-11-logo.png" alt="10:11 events logo" />
             <span className="sub">events</span>
           </Link>
           <nav className="main-nav" aria-hidden={open? 'false' : 'true'}>
