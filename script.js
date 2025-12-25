@@ -129,4 +129,81 @@ document.addEventListener('DOMContentLoaded',function(){
   document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const href=a.getAttribute('href'); if(href.length>1){ e.preventDefault(); const target=document.querySelector(href); if(target) target.scrollIntoView({behavior:'smooth',block:'start'})}})});
 
   // Basic performance tip: mark images loading=lazy where possible (already used in markup)
+
+  // --- Paystack client-side handlers ---
+  // Replace this with your Paystack public key for testing (pk_test_...)
+  const PAYSTACK_PUBLIC_KEY = 'pk_test_replace_me';
+
+  // Open the payment modal when clicking any .pay-btn
+  document.querySelectorAll('.pay-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const modal = document.getElementById('paymentModal');
+      if(!modal) return;
+      const service = btn.dataset.service || btn.getAttribute('data-service') || '';
+      const svcEl = modal.querySelector('#paymentService');
+      const amtEl = modal.querySelector('#paymentAmount');
+      if(svcEl) svcEl.value = service;
+      // Clear amount so user enters current desired deposit
+      if(amtEl) amtEl.value = '';
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+      const nameEl = modal.querySelector('#payerName'); if(nameEl) nameEl.focus();
+    });
+  });
+
+  // Modal close handlers
+  const paymentModal = document.getElementById('paymentModal');
+  if(paymentModal){
+    const closeBtn = document.getElementById('paymentClose');
+    const cancelBtn = document.getElementById('paymentCancel');
+    if(closeBtn) closeBtn.addEventListener('click', ()=>{ paymentModal.classList.remove('show'); paymentModal.setAttribute('aria-hidden','true'); });
+    if(cancelBtn) cancelBtn.addEventListener('click', ()=>{ paymentModal.classList.remove('show'); paymentModal.setAttribute('aria-hidden','true'); });
+    paymentModal.addEventListener('click', e=>{ if(e.target===paymentModal){ paymentModal.classList.remove('show'); paymentModal.setAttribute('aria-hidden','true'); } });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && paymentModal.classList.contains('show')){ paymentModal.classList.remove('show'); paymentModal.setAttribute('aria-hidden','true'); } });
+
+    // Payment form submit -> call Paystack
+    const payForm = document.getElementById('paymentForm');
+    const payMsg = document.getElementById('paymentMessage');
+    payForm && payForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = (document.getElementById('payerName') && document.getElementById('payerName').value.trim()) || '';
+      const email = (document.getElementById('payerEmail') && document.getElementById('payerEmail').value.trim()) || '';
+      const amountStr = (document.getElementById('paymentAmount') && document.getElementById('paymentAmount').value.trim()) || '';
+      const service = (document.getElementById('paymentService') && document.getElementById('paymentService').value.trim()) || '';
+
+      if(!name || !email || !amountStr){ alert('Please fill name, email and amount'); return; }
+      const amount = Math.round(parseFloat(amountStr) * 100); // in kobo
+      if(isNaN(amount) || amount <= 0){ alert('Invalid amount'); return; }
+      if(!window.PaystackPop){ alert('Paystack script not loaded.'); return; }
+
+      // Disable submit and show a message
+      const submitBtn = payForm.querySelector('button[type="submit"]');
+      submitBtn && (submitBtn.disabled = true);
+      if(payMsg) payMsg.textContent = 'Opening payment window...';
+
+      const handler = window.PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: email,
+        amount: amount,
+        currency: 'NGN',
+        metadata: { custom_fields:[{ display_name: 'Service', variable_name: 'service', value: service }, { display_name: 'Customer Name', variable_name: 'customer_name', value: name }] },
+        callback: function(response){
+          // IMPORTANT: verify transaction on server with secret key
+          if(payMsg) payMsg.textContent = 'Payment complete. Reference: ' + response.reference + '. Verifying...';
+          submitBtn && (submitBtn.disabled = false);
+          // Close modal after a brief delay
+          setTimeout(()=>{ paymentModal.classList.remove('show'); paymentModal.setAttribute('aria-hidden','true'); }, 900);
+          // You should POST the reference to your server endpoint for verification
+          // Example (uncomment and replace '/verify-payment' with your endpoint):
+          // fetch('/verify-payment', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ reference: response.reference }) }).then(r=>r.json()).then(console.log).catch(console.error);
+        },
+        onClose: function(){
+          submitBtn && (submitBtn.disabled = false);
+          if(payMsg) payMsg.textContent = 'Payment cancelled.';
+        }
+      });
+      handler.openIframe();
+    });
+  }
+
 });

@@ -1,0 +1,45 @@
+:root{
+  --bg:#0f1724;
+  --card:rgba(255,255,255,0.04);
+  --muted:#9aa3b2;
+  --accent:#f59e0b;
+  --glass:rgba(255,255,255,0.04);
+  --white: #f8fafc;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{font-family:Montserrat,system-ui,Segoe UI,Roboto,Arial; background:linear-gradient(180deg,#07102a 0%, #081229 60%); color:var(--white); margin:0}
+.container{max-width:1100px;margin:0 auto;padding:1.2rem}
+.site-header{backdrop-filter:blur(6px);background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:0.8rem 0; position:sticky;top:0;z-index:40}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;color:var(--white)}
+.logo-img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+.main-nav a{color:var(--white);text-decoration:none;padding:0.4rem 0.6rem;border-radius:6px;transition:all .25s ease}
+.main-nav a:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,0.5)}
+.main-nav .active{position:relative}
+.nav-underline{position:absolute;left:0;bottom:-6px;height:3px;background:linear-gradient(90deg,var(--accent),#ffb86b);border-radius:4px;transition:all .3s ease}
+.hero-slider{min-height:60vh;display:flex;align-items:center;position:relative;border-radius:12px;overflow:hidden;margin-bottom:1rem}
+.slides{display:flex;gap:0}
+.slide{min-height:60vh;min-width:100%;background-size:cover;background-position:center;display:flex;align-items:center}
+.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,0.5),rgba(0,0,0,0.2));padding:3rem;border-radius:12px;margin-left:3rem}
+.hero-overlay h1{font-family:Playfair Display,serif;font-size:2.2rem;margin:0 0 0.4rem}
+.lead{color:var(--muted);max-width:60ch}
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:0.55rem 0.9rem;border-radius:8px;cursor:pointer;transition:all .25s}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+.btn-cta{background:linear-gradient(90deg,var(--accent),#ffb86b);color:#091024;border:none}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+.card{background:var(--card);padding:1rem;border-radius:12px;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:translateY(-10px) rotate(-0.5deg);box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+.portfolio-preview .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem}
+.testimonials-slider{display:flex;gap:0.8rem;overflow:hidden}
+.testi-card{display:flex;gap:0.8rem;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:0.8rem;border-radius:10px}
+.testi-avatar{width:56px;height:56px;border-radius:50%}
+.footer-grid{display:flex;gap:2rem}
+.site-footer{margin-top:2rem;padding:2rem 0;border-top:1px solid rgba(255,255,255,0.03)}
+.fade-in{animation:fadeIn .6s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(3,6,12,0.6)}
+.modal-panel{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:1rem;border-radius:12px;min-width:320px}
+.form-input{display:block;margin:0.4rem 0;padding:0.6rem;border-radius:8px;border:none;background:rgba(255,255,255,0.02);color:var(--white)}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.portfolio-preview .grid{grid-template-columns:1fr}.nav-wrap{gap:0.6rem}}

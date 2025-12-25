@@ -115,6 +115,17 @@ section{padding:3rem 0}
   .ceo-photo{width:120px;height:120px}
 }
 
+/* Paystack / Payment Modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:1200}
+.modal.show{display:flex}
+.modal .modal-panel{background:var(--surface);color:var(--text);padding:1.25rem;border-radius:10px;width:95%;max-width:520px;box-shadow:0 10px 30px rgba(0,0,0,0.45)}
+.modal .modal-panel h3{margin-top:0}
+.modal .modal-row{display:flex;gap:0.75rem;margin-bottom:0.6rem}
+.modal label{font-size:0.95rem;display:block;margin-bottom:0.32rem}
+.modal input[type="text"], .modal input[type="email"], .modal input[type="number"]{width:100%;padding:0.6rem;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+.modal .modal-actions{display:flex;gap:0.6rem;justify-content:flex-end;margin-top:0.6rem}
+.modal .modal-close{position:absolute;top:0.6rem;right:0.6rem;background:transparent;border:0;color:var(--text);font-size:1.2rem}
+
 /* Contact */
 .contact-grid{display:grid;grid-template-columns:1fr;gap:1rem}
 .contact-form form{display:flex;flex-direction:column;gap:0.6rem}
