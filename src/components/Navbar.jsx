@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 export default function Navbar(){
   const [open,setOpen] = React.useState(false)
-  const links = [{to:'/',label:'Home'},{to:'/about',label:'About'},{to:'/services',label:'Services'},{to:'/contact',label:'Contact'}]
+  const links = [{to:'/',label:'Home'},{to:'/about',label:'About'},{to:'/services',label:'Services'},{to:'/gallery',label:'Portfolio'},{to:'/testimonials',label:'Testimonials'},{to:'/blog',label:'Blog'},{to:'/faq',label:'FAQ'},{to:'/contact',label:'Contact'}]
   return (
     <header className="site-header">
       <div className="container nav-wrap">
