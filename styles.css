@@ -17,6 +17,12 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased} 
+
+/* Remove link underlines globally but keep accessible focus outlines */
+a{ text-decoration:none; color:inherit; }
+a:hover,a:active{ text-decoration:none; }
+a:focus,a:focus-visible{ outline:3px solid rgba(212,175,55,0.18); outline-offset:2px; border-radius:4px; }
+
 .container{max-width:var(--max-width);margin:0 auto;padding:1.25rem}
 
 /* Header */

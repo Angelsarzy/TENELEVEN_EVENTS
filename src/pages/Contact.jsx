@@ -7,7 +7,7 @@ export default function Contact(){
   }
   return (
     <main id="main" className="container">
-      <section className="page-hero" style={{backgroundImage:"url('/chief.jpg')"}}>
+      <section className="page-hero" style={{backgroundImage:"url('/assets/chief.jpg')"}}>
         <div className="hero-overlay small">
           <h1>Contact & Booking</h1>
           <p className="lead">Ready to plan your next event? Reach out now.</p>
